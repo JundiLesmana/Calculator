@@ -14,11 +14,8 @@ from tkinter import messagebox
 	rsltDayField.delete(0, END) 
 	rsltMonthField.delete(0, END) 
 	rsltYearField.delete(0, END) 
-/////////////////////////////////////
  # untuk mengetahui dan mengecek kesalahan 
 def checkError() :  
-  
-  ////////////////////////////////
   
 # jika salah satu bidang entri kosong lalu tampilkan pesan kesalahan dan hapus semua entri
 
@@ -26,21 +23,19 @@ def checkError() :
 		or yearField.get() == "" or givenDayField.get() == "" 
 		or givenMonthField.get() == "" or givenYearField.get() == "") : 
 
-		# tampilkan pesan kesalahan
-		messagebox.showerror("Input Error") 
-
-	  # clearAll pemanggilan fungsi
-		clearAll() 
-		
-		return -1
+# tampilkan pesan kesalahan
+	messagebox.showerror("Input Error") 
+  # clearAll pemanggilan fungsi
+	clearAll() 		
+	return -1
 
 # berfungsi untuk menghitung Umur
-def calculateAge() : 
+	def calculateAge() : 
 
 	# mengecek kesalahan 
 	value = checkError() 
 
-	# jika terjadi kesalahan kemudian kembali
+# jika terjadi kesalahan kemudian kembali
 	if value == -1 : 
 		return
 	
@@ -92,7 +87,7 @@ def calculateAge() :
 	
 
 # Driver Code 
-if __name__ == "__main__" : 
+	if __name__ == "__main__" : 
 
 	# tambahkan GUI window 
 	gui = Tk() 
@@ -161,8 +156,8 @@ if __name__ == "__main__" :
 	rsltDayField = Entry(gui) 
 
 
-	# metode grid digunakan untuk menempatkan
-	# # widget di posisi masing-masing dalam tabel seperti struktur.
+# metode grid digunakan untuk menempatkan
+	 # widget di posisi masing-masing dalam tabel seperti struktur.
   
 	dob.grid(row = 0, column = 1) 
 	
@@ -199,5 +194,5 @@ if __name__ == "__main__" :
 
 	clearAllEntry.grid(row = 12, column = 2) 
 
-	# memulai GUI 
+# memulai GUI 
 	gui.mainloop()	 
