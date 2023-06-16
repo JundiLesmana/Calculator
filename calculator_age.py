@@ -1,11 +1,6 @@
-# import all functions from the tkinter 
-from tkinter import *
-
-# import messagebox class from tkinter 
+from tkinter import  
 from tkinter import messagebox 
-
-# Function for clearing the 
-# contents of all text entry boxes 
+ 
 def clearAll() : 
 
 	# deleting the content from the entry box 
@@ -21,11 +16,7 @@ def clearAll() :
 
 # function for checking error 
 def checkError() : 
-
-	# if any of the entry field is empty 
-	# then show an error message and clear 
-	# all the entries 
-		
+	
 	if (dayField.get() == "" or monthField.get() == "" 
 		or yearField.get() == "" or givenDayField.get() == "" 
 		or givenMonthField.get() == "" or givenYearField.get() == "") : 
@@ -50,8 +41,7 @@ def calculateAge() :
 	
 	else : 
 		
-		# take a value from the respective entry boxes 
-		# get method returns current text as string 
+		
 		birth_day = int(dayField.get()) 
 		birth_month = int(monthField.get()) 
 		birth_year = int(yearField.get()) 
@@ -59,36 +49,20 @@ def calculateAge() :
 		given_day = int(givenDayField.get()) 
 		given_month = int(givenMonthField.get()) 
 		given_year = int(givenYearField.get()) 
-		
-		
-		# if birth date is greater then given birth_month 
-		# then donot count this month and add 30 to the date so 
-		# as to subtract the date and get the remaining days 
 		month =[31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31] 
 		
 		if (birth_day > given_day): 
 			given_month = given_month - 1
 			given_day = given_day + month[birth_month-1] 
-					
-					
-		# if birth month exceeds given month, then 
-		# donot count this year and add 12 to the 
-		# month so that we can subtract and find out 
-		# the difference 
+			
 		if (birth_month > given_month): 
 			given_year = given_year - 1
 			given_month = given_month + 12
 					
-		# calculate day, month, year 
 		calculated_day = given_day - birth_day; 
 		calculated_month = given_month - birth_month; 
 		calculated_year = given_year - birth_year; 
 
-		# calculated day, month, year write back 
-		# to the respective entry boxes 
-
-		# insert method inserting the 
-		# value in the text entry box. 
 		
 		rsltDayField.insert(10, str(calculated_day)) 
 		rsltMonthField.insert(10, str(calculated_month)) 
@@ -98,60 +72,26 @@ def calculateAge() :
 # Driver Code 
 if __name__ == "__main__" : 
 
-	# Create a GUI window 
-	gui = Tk() 
-
-	# Set the background colour of GUI window 
+	gui = Tk()  
 	gui.configure(background = "light green") 
-
-	# set the name of tkinter GUI window 
 	gui.title("Kalkulator Umur") 
-
-	# Set the configuration of GUI window 
 	gui.geometry("525x260") 
 
-	# Create a Date Of Birth : label 
 	dob = Label(gui, text = "Tanggal lahir", bg = "light green") 
-
-	# Create a Given Date : label 
 	givenDate = Label(gui, text = "Tanggal tertentu", bg = "light green") 
-
-	# Create a Day : label 
 	day = Label(gui, text = "Tanggal", bg = "light green") 
-
-	# Create a Month : label 
 	month = Label(gui, text = "Bulan", bg = "light green") 
-
-	# Create a Year : label 
 	year = Label(gui, text = "Tahun", bg = "light green") 
-
-	# Create a Given Day : label 
 	givenDay = Label(gui, text = "hari yang diberikan", bg = "light green") 
-
-	# Create a Given Month : label 
 	givenMonth = Label(gui, text = "bulan ", bg = "light green") 
-
-	# Create a Given Year : label 
 	givenYear = Label(gui, text = "Tahun yg diberikan", bg = "light green") 
-
-	# Create a Years : label 
 	rsltYear = Label(gui, text = "Tahun", bg = "light green") 
-
-	# Create a Months : label 
 	rsltMonth = Label(gui, text = "Bulan", bg = "light green") 
-
-	# Create a Days : label 
-	rsltDay = Label(gui, text = "hari", bg = "light green") 
-
-	# Create a Resultant Age Button and attached to calculateAge function 
+	rsltDay = Label(gui, text = "hari", bg = "light green")  
 	resultantAge = Button(gui, text = "Umur yang dihasilkan", fg = "Black", bg = "Red", command = calculateAge) 
-
-	# Create a Clear All Button and attached to clearAll function 
 	clearAllEntry = Button(gui, text = "Hapus Semua", fg = "Black", bg = "Red", command = clearAll) 
 
 	clearAllEntry = Button (gui, text = "Jundi Lesmana",fg = "Black", bg = "light green", command = clearAll)
-
-	# Create a text entry box for filling or typing the information. 
 	dayField = Entry(gui) 
 	monthField = Entry(gui) 
 	yearField = Entry(gui) 
@@ -163,11 +103,6 @@ if __name__ == "__main__" :
 	rsltYearField = Entry(gui) 
 	rsltMonthField = Entry(gui) 
 	rsltDayField = Entry(gui) 
-
-
-	# grid method is used for placing 
-	# the widgets at respective positions 
-	# in table like structure . 
 	dob.grid(row = 0, column = 1) 
 	
 	day.grid(row = 1, column = 0) 
@@ -202,6 +137,4 @@ if __name__ == "__main__" :
 	rsltDayField.grid(row = 10, column = 2) 
 
 	clearAllEntry.grid(row = 12, column = 2) 
-
-	# Start the GUI 
 	gui.mainloop()	 
