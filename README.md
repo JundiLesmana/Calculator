@@ -3,8 +3,6 @@ from tkinter import *//import library
 # import messagebox class from tkinter 
 from tkinter import messagebox //import library
 
-////////////////////////////////////////////////////
-
 # menghapus konten dari entry box
 
 	dayField.delete(0, END) 
